@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<p th:text="${title}"></p>
+
+<a type="button" th:href="@{/add-category}">Add Category</a>
+
+<table style="width:100%">
+    <tr>
+        <th>id</th>
+        <th>nume</th>
+
+    </tr>
+    <tr th:each="categorie: ${categories}">
+        <td th:text="${categorie.id}"></td>
+        <td th:text="${categorie.nume}"></td>
+        <td>
+            <a th:href="@{/deleteCategoryById(id=${categorie.id})}">X</a>
+
+
+            <a th:href="@{/edit-category(id=${categorie.id})}">EDIT</a>
+        </td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>

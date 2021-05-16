@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add product</title>
+</head>
+
+<body>
+
+<h2>Add product</h2>
+
+<form th:action="@{/product-add}" th:object="${newProduct}">
+    <label for="fname">numeProdus:</label><br>
+    <input type="text" id="fname" name="fname" th:field="*{numeProdus}"><br>
+    <label for="lname">Descriere:</label><br>
+    <input type="text" id="lname" name="lname" th:field="*{descriere}"><br><br>
+    <label for="price">Pret:</label><br>
+    <input type="text" id="price" name="price" th:field="*{pret}"><br><br>
+    <input type="submit" value="Add product">
+
+    <label for="cars">Category</label><br>
+    <div>
+        <select name="cars" id="cars" th:field="*{category.id}">
+            <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.nume}">Volvo</option>
+
+        </select>
+    </div>
+
+</form>
+
+
+</body>
+</html>
